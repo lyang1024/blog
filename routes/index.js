@@ -13,10 +13,20 @@ var crypto = require('crypto'),
 
 module.exports = function(app) {
 	app.get('/',function (req,res) {
-		res.render('index',{title:'Home Page'});
+		res.render('index',{
+			title:'Home Page',
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
+			});
 	});
 	app.get('/reg',function (req, res) {
-		res.render('reg',{title:'Register'});
+		res.render('reg',{
+			title:'Register',
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
+			});
 	});
 	app.post('/reg',function(req, res) {
 		var name = req.body.name,
@@ -52,7 +62,6 @@ module.exports = function(app) {
 				res.redirect('/');
 			});
 		});
-	});
 	});
 	app.get('/login',function(req, res) {
 		res.render('login',{title: 'Login'});

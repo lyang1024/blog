@@ -14,15 +14,25 @@
 				<div class="am-collapse am-topbar-collapse" id="collapse-head">
 					<ul class="am-nav am-nav-pills am-topbar-nav">
 						<li><a href="/">Home Page</a></li>
+					<% if (user) { %>
 						<li><a href="/post">Post</a></li>
 						<li><a href="/logout">Logout</a></li>
+					<% } else { %>
 						<li><a href="/login">Login</a></li>
 						<li><a href="/reg">Register</a></li>
-					<ul>
+					<% } %>
+					</ul>
 				</div>
 			</div>
 		</header>
 	<article>
 	<br><br><br>
+	<% if (success) { %>
+		<div><%= success %></div>
+		<% } %>
+		<% if (error) { %>
+		<div><%= error %> </div>
+	<% } %>
+
 
 
