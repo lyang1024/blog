@@ -1,5 +1,29 @@
 <!DOCTYPE html>
 <%- include header %>
+	<div class="am-g">
+		<div class="am-u-lg-8 am-u-sm-centered">
+	<% posts.forEach(function(post, index) { %>
+		<div class="am-panel am-panel-default">
+			<div class="am-panel-hd">
+			<p>
+			<a href="#">
+			<%=post.title %>
+			</a> | Author:
+			<a href="#">
+			<%=post.name %>
+			</a> | Date:
+			<%=post.time.minute %>
+			</p>
+			</div>
+			<div class="am-panel-bd">
+			<p>
+			<%- post.post %>
+			</p>
+			</div>
+		</div>
+		<% }) %>
+		</div>
+	</div>
 <%- include footer %>
 
 
